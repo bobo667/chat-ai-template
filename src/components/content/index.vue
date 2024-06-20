@@ -8,7 +8,7 @@
       >
         <div
           :class="
-            'flex ' + (item.role == 'user' ? 'flex-row-reverse' : '') + ' items-start'
+            'flex ' + (item.role === 'user' ? 'flex-row-reverse' : '') + ' items-start'
           "
           v-for="item in messageList"
         >
@@ -16,10 +16,10 @@
           <div
             class="flex rounded-b-xl rounded-tr-xl bg-slate-50 p-4 dark:bg-slate-800 sm:max-w-md md:max-w-2xl"
           >
-            <p>{{ item.conent }}</p>
+            <p>{{ item.content }}</p>
           </div>
           <div
-            v-if="item.role == 'assistant'"
+            v-if="item.role === 'assistant'"
             class="mr-2 mt-1 flex flex-col-reverse gap-2 text-slate-500 sm:flex-row"
           >
             <button class="hover:text-blue-600" type="button">
@@ -46,80 +46,60 @@
         </div>
       </div>
     </div>
+
     <!-- Prompt message input -->
     <promptInput @send="send"/>
   </div>
 </template>
 
 <script>
-import promptInput from "../proment-input/index.vue";
+import promptInput from '../proment-input/index.vue';
+
 export default {
-  components: { promptInput },
-  name: "Index",
-  data() {
-    return {
-      imgInfo: {
-        user: "https://dummyimage.com/128x128/363536/ffffff&text=U",
-        assistant: "https://dummyimage.com/128x128/354ea1/ffffff&text=AI",
-      },
-      formData : {
+	components: { promptInput },
+	name: 'Index',
+	data() {
+		return {
+			imgInfo: {
+				user: 'https://dummyimage.com/128x128/363536/ffffff&text=U',
+				assistant: 'https://dummyimage.com/128x128/354ea1/ffffff&text=AI',
+			},
+			formData: {
 
-      },
-      messageList: [
-        // {
-        //   conent: "Explain quantum computing in simple terms",
-        //   role: "user",
-        // },
-        // {
-        //   conent:
-        //     "Certainly! Quantum computing is a new type of computing that relies on the principles of quantum physics. Traditional computers, like the one you might be using right now, use bits to store and process information. These bits can represent either a 0 or a 1. In contrast, quantum computers use quantum bits, or qubits.Unlike bits, qubits can represent not only a 0 or a 1 but also a superposition of both states simultaneously. This means that a qubit can be in multiple states at once, which allows quantum computers to perform certain calculations much faster and more efficiently",
-        //   role: "assistant",
-        // },
-        // {
-        //   conent: "Explain quantum computing in simple terms",
-        //   role: "user",
-        // },
-        // {
-        //   conent:
-        //     "Certainly! Quantum computing is a new type of computing that relies on the principles of quantum physics. Traditional computers, like the one you might be using right now, use bits to store and process information. These bits can represent either a 0 or a 1. In contrast, quantum computers use quantum bits, or qubits.Unlike bits, qubits can represent not only a 0 or a 1 but also a superposition of both states simultaneously. This means that a qubit can be in multiple states at once, which allows quantum computers to perform certain calculations much faster and more efficiently",
-        //   role: "assistant",
-        // },
-        // {
-        //   conent: "Explain quantum computing in simple terms",
-        //   role: "user",
-        // },
-        // {
-        //   conent:
-        //     "Certainly! Quantum computing is a new type of computing that relies on the principles of quantum physics. Traditional computers, like the one you might be using right now, use bits to store and process information. These bits can represent either a 0 or a 1. In contrast, quantum computers use quantum bits, or qubits.Unlike bits, qubits can represent not only a 0 or a 1 but also a superposition of both states simultaneously. This means that a qubit can be in multiple states at once, which allows quantum computers to perform certain calculations much faster and more efficiently",
-        //   role: "assistant",
-        // },
-        // {
-        //   conent: "Explain quantum computing in simple terms",
-        //   role: "user",
-        // },
-        // {
-        //   conent:
-        //     "Certainly! Quantum computing is a new type of computing that relies on the principles of quantum physics. Traditional computers, like the one you might be using right now, use bits to store and process information. These bits can represent either a 0 or a 1. In contrast, quantum computers use quantum bits, or qubits.Unlike bits, qubits can represent not only a 0 or a 1 but also a superposition of both states simultaneously. This means that a qubit can be in multiple states at once, which allows quantum computers to perform certain calculations much faster and more efficiently",
-        //   role: "assistant",
-        // },
-      ],
-    };
-  },
-  methods: {
-    send(){
 
-    }
-    // Your component methods go here
-  },
-  mounted() {
-    // Code to run when the component is mounted goes here
-  },
+			},
+			messageList: [
+				// {
+				//   content: "Explain quantum computing in simple terms",
+				//   role: "user",
+				// },
+				// {
+				//   content:
+				//     "Certainly! Quantum computing is a new type of computing that relies on the principles of quantum physics. Traditional computers, like the one you might be using right now, use bits to store and process information. These bits can represent either a 0 or a 1. In contrast, quantum computers use quantum bits, or qubits.Unlike bits, qubits can represent not only a 0 or a 1 but also a superposition of both states simultaneously. This means that a qubit can be in multiple states at once, which allows quantum computers to perform certain calculations much faster and more efficiently",
+				//   role: "assistant",
+				// },
+				// {
+				//   content: "Explain quantum computing in simple terms",
+				//   role: "user",
+				// },
+			],
+		};
+	},
+	methods: {
+		send() {
+
+		},
+		// Your component methods go here
+	},
+	mounted() {
+		// Code to run when the component is mounted goes here
+	},
 };
 </script>
 
 <style scoped>
 .half-screen-height {
-  height: 67vh;
+  height: 74vh;
 }
 
 </style>

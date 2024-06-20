@@ -6,25 +6,25 @@ import store from './store/index';
 import i18n from './language/i18n';
 import 'element-ui/lib/theme-chalk/index.css';
 import moment from 'moment';
-import './styles/tailwindcss.css'
+import './styles/tailwindcss.css';
 import {
-  dateFormat,
+	dateFormat,
 } from './libs/util.js';
 
 // require styles
 import './styles/common.scss';
 import './styles/element-variables.scss';
 
-Vue.use(ElementUI);
+Vue.use( ElementUI );
 
 Vue.config.productionTip = false;
 Vue.prototype.$moment = moment;
 
-Vue.filter('dateFormat', dateFormat);
+Vue.filter( 'dateFormat', dateFormat );
 
-new Vue({
-  router,
-  store,
-  i18n,
-  render: h => h(App),
-}).$mount('#app');
+new Vue( {
+	router,
+	store,
+	i18n,
+	render: h => h( App ),
+} ).$mount( '#app' );
