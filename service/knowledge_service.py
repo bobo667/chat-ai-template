@@ -109,7 +109,8 @@ def query_knowledge(chat_id):
         chat_history_list.append(message)
 
     last_message = chat_history_list[-1]
-
+    # 祛除掉最后一个自己提问的多余的信息
+    chat_history_list = chat_history_list[:-1]
     response = chat_engine.stream_chat(last_message.content, chat_history_list)
     return response.response_gen
 
