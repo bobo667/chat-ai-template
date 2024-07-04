@@ -2,7 +2,9 @@
 node_modules
 /dist
 .history
-
+chat-ai-db
+.venv
+chat-vertor.db
 # local env files
 .env.local
 .env.*.local
