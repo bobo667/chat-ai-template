@@ -8,6 +8,7 @@ chat-vertor.db
 # local env files
 .env.local
 .env.*.local
+chat-ai-db/chat-ai.db
 
 # Log files
 npm-debug.log*
