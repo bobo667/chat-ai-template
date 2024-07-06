@@ -72,6 +72,5 @@ async def send_message_router(param: SendMessageParams):
             yield data
         data = F"data:#end:\n\n"
         yield data
-        add_chat_record(chat_id, 'text', 'assistant', chat_content)
 
     return StreamingResponse(generate(), media_type="text/event-stream")

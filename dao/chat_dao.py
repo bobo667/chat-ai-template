@@ -29,8 +29,10 @@ def add_chat(chat_name, chart_type):
 
 
 # 查询聊天记录
-def query_chat_record(chat_id):
-    sql = F"select * from chat_record where chat_info_id = ? order by chat_time asc"
+def query_chat_record(chat_id, limit=0, order='asc'):
+    sql = F"select * from chat_record where chat_info_id = ? order by chat_time {order}"
+    if limit > 0:
+        sql += F' limit {limit}'
     return query(sql, (chat_id,))
 
 

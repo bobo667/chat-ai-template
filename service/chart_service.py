@@ -48,9 +48,9 @@ def send_message(param: SendMessageParams):
     if chat_id is None or chat_id == "":
         chat_id = add_chat(chat_content if len(chat_content) <= 5 else chat_content[:5] + "...", chat_type)
 
-    add_chat_record_(chat_id, chat_record_type, chat_role, chat_content)
-
-    return chat_id, get_lcel(chat_id) if chat_type == 'text' else query_knowledge(chat_id)  # 直接返回生成器
+    return chat_id, get_lcel({'query': chat_content}, 'text', chat_record_type,
+                             chat_id) if chat_type == 'text' else query_knowledge(
+        chat_content, chat_record_type, chat_id)  # 直接返回生成器
 
 
 def builder_message(chat_id):

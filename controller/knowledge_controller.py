@@ -32,7 +32,7 @@ async def save_file_web(file: UploadFile = File(...)):
     # 获取文件内容
     file_content = await file.read()
     # 保存文件到本地
-    file_path = f"{os.getenv("FILE_LOCAL_PATH")}/{file.filename}"
+    file_path = f"{os.getenv('FILE_LOCAL_PATH')}/{file.filename}"
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, "wb") as f:
         f.write(file_content)
